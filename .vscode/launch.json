@@ -1,0 +1,21 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Litestar",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "litestar",
+      "args": [
+        "--app",
+        "app.app:create_app",
+        "run",
+        "--web-concurrency",
+        "1",
+        "--reload",
+        "--debug"
+      ],
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}

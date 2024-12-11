@@ -1,0 +1,29 @@
+[project]
+name = "itcubehackbackend"
+version = "0.1.0"
+description = ""
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "aiohttp-s3-client>=1.0.0",
+    "dishka>=1.4.2",
+    "litestar[cli]>=2.13.0",
+    "orjson>=3.10.12",
+    "pydantic-settings>=2.6.1",
+    "pydantic>=2.10.3",
+    "sqlalchemy[postgres-asyncpg]>=2.0.36",
+]
+
+[tool.ruff]
+lint.select = ["E", "F", "W", "Q", "I", "B"]
+
+lint.fixable = ["ALL"]
+lint.unfixable = []
+
+line-length = 89
+exclude = [ "alembic/versions" ]
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.0.1",
+]

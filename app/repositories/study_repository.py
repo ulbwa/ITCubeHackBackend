@@ -1,3 +1,4 @@
+from typing import Sequence
 from uuid import UUID
 
 from sqlalchemy import select
@@ -37,7 +38,7 @@ class StudyRepository(interfaces.StudyRepository):
 
     async def search(
         self, ensure_visible: bool, limit: int, offset: int
-    ) -> interfaces.Sequence[domain.StudyDirection]:
+    ) -> Sequence[domain.StudyDirection]:
         query = (
             select(schemas.StudyDirection)
             .options(noload(schemas.StudyDirection.instructors))

@@ -1,3 +1,4 @@
+from typing import Sequence
 from uuid import UUID
 
 from sqlalchemy import select
@@ -23,7 +24,7 @@ class NewsRepository(interfaces.NewsRepository):
 
     async def search(
         self, ensure_visible: bool, limit: int, offset: int
-    ) -> interfaces.Sequence[domain.News]:
+    ) -> Sequence[domain.News]:
         query = select(schemas.News).order_by(schemas.News.created_at)
 
         if ensure_visible:

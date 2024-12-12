@@ -22,6 +22,10 @@ class RepositoryProvider(Provider):
         repositories.NewsRepository,
         provides=interfaces.NewsRepository,
     )
+    instructor_repository = provide(
+        repositories.InstructorRepository,
+        provides=interfaces.InstructorRepository,
+    )
 
 
 __all__ = ("RepositoryProvider",)

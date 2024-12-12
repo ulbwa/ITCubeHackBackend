@@ -8,7 +8,7 @@ from app.database import schemas
 from app.types import domain
 
 
-class AnnouncementRepository(interfaces.AnnouncementRepository):
+class InstructorRepository(interfaces.InstructorRepository):
     __slots__ = ("session",)
 
     def __init__(self, session: AsyncSession):
@@ -16,22 +16,18 @@ class AnnouncementRepository(interfaces.AnnouncementRepository):
 
     async def search(
         self,
-        ensure_visible: bool,
         limit: int,
         offset: int,
-    ) -> Sequence[domain.Announcement]:
-        query = select(schemas.Announcement).order_by(schemas.Announcement.index)
-
-        if ensure_visible:
-            query = query.where(schemas.Announcement.is_hidden.is_(False))
+    ) -> Sequence[domain.Instructor]:
+        query = select(schemas.Instructor).order_by(schemas.Instructor.created_at)
 
         query = query.limit(limit).offset(offset)
         data = await self.session.scalars(query)
 
         return [
-            adapters.domain.AnnouncementDatabaseAdapter(announcement)
+            adapters.domain.InstructorDatabaseAdapter(announcement)
             for announcement in data
         ]
 
 
-__all__ = ("AnnouncementRepository",)
+__all__ = ("InstructorRepository",)

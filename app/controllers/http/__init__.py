@@ -2,6 +2,7 @@ from litestar import Router
 
 from app.controllers.http.announcement_controller import AnnouncementController
 from app.controllers.http.exception_handlers import get_exception_handlers
+from app.controllers.http.instructor_controller import InstructorController
 from app.controllers.http.news_controller import NewsController
 from app.controllers.http.storage_controller import StorageController
 from app.controllers.http.study_controller import StudyController
@@ -13,6 +14,7 @@ router = Router(
         StudyController,
         StorageController,
         NewsController,
+        InstructorController,
     ],
 )
 exception_handlers = get_exception_handlers()

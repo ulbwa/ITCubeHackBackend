@@ -43,4 +43,14 @@ class NewsRepository(Protocol):
     ) -> Sequence[domain.News]: ...
 
 
-__all__ = "AnnouncementRepository", "StudyRepository", "MediaRepository"
+class InstructorRepository(Protocol):
+    @abstractmethod
+    async def search(self, limit: int, offset: int) -> Sequence[domain.Instructor]: ...
+
+
+__all__ = (
+    "AnnouncementRepository",
+    "StudyRepository",
+    "MediaRepository",
+    "InstructorRepository",
+)

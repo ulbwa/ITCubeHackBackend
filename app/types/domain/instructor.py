@@ -37,12 +37,12 @@ class Instructor:
             years = self.seniority.days // 365
             if years > 5:
                 return "более 5-ти лет"
-            return utils.plural(years, ("год", "года", "лет"))
+            return f'{years} {utils.plural(years, ("год", "года", "лет"))}'
         elif self.seniority.days > 30:
             months = self.seniority.days // 30
-            return utils.plural(months, ("месяц", "месяца", "месяцев"))
+            return f'{months} {utils.plural(months, ("месяц", "месяца", "месяцев"))}'
         else:
-            return utils.plural(self.seniority.days, ("день", "дня", "дней"))
+            return f'{self.seniority.days} {utils.plural(self.seniority.days, ("день", "дня", "дней"))}'  # noqa: E501
 
 
 __all__ = ("Instructor",)

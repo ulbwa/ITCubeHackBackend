@@ -23,7 +23,7 @@ class AnnouncementRepository(interfaces.AnnouncementRepository):
         query = select(schemas.Announcement)
 
         if ensure_visible:
-            query = query.where(schemas.Announcement.is_hidden._is_(False))
+            query = query.where(schemas.Announcement.is_hidden.is_(False))
 
         if sort_option == enums.AnnouncementSortOption.CREATED_AT:
             if sort_direction == enums.SortDirection.ASC:

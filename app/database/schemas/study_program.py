@@ -16,8 +16,8 @@ class StudyProgram(Base):
         primary_key=True, default=uuid4, server_default=func.gen_random_uuid()
     )
     direction_ref_id: Mapped[UUID] = mapped_column(ForeignKey(StudyDirection.ref_id))
-    title: Mapped[str] = mapped_column(String(64))
-    description: Mapped[str] = mapped_column(String(256))
+    title: Mapped[str] = mapped_column(String(256))
+    description: Mapped[str] = mapped_column(String(512))
     document_ref_id: Mapped[Media] = mapped_column(ForeignKey(Media.ref_id))
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),

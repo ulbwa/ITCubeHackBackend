@@ -10,7 +10,7 @@ class StudyProgram(
 ):
     ref_id: UUID
     title: str
-    description: str
+    description: str | None
     document: Media
 
 

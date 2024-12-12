@@ -17,7 +17,7 @@ class News(Base):
     ref_id: Mapped[UUID] = mapped_column(
         primary_key=True, default=uuid4, server_default=func.gen_random_uuid()
     )
-    title: Mapped[str] = mapped_column(String(64))
+    title: Mapped[str] = mapped_column(String(256))
     content: Mapped[str]
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),

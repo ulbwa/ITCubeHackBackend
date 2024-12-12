@@ -31,8 +31,11 @@ class S3Config(BaseSettings):
 class AppConfig(BaseSettings):
     log_level: str = "INFO"
 
-    photo_bucket: str
-    document_bucket: str
+    instructor_images_bucket: str
+    program_documents_bucket: str
+    direction_icons_bucket: str
+    announcement_images_bucket: str
+    news_gallery_bucket: str
 
 
 __all__ = "DatabaseConfig", "LitestarConfig", "S3Config", "AppConfig"

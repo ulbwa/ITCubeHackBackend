@@ -6,6 +6,7 @@ from sqlalchemy import DateTime, ForeignKey, String, func, text
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.database import Base
+from app.database.schemas.instructor import Instructor
 from app.database.schemas.media import Media
 
 if TYPE_CHECKING:
@@ -18,11 +19,11 @@ class StudyDirection(Base):
     ref_id: Mapped[UUID] = mapped_column(
         primary_key=True, default=uuid4, server_default=func.gen_random_uuid()
     )
-    title: Mapped[str] = mapped_column(String(64))
-    description: Mapped[str | None] = mapped_column(String(256))
+    title: Mapped[str] = mapped_column(String(256))
+    description: Mapped[str | None] = mapped_column(String(512))
     content: Mapped[str]
-    media_ref_id: Mapped[UUID] = mapped_column(ForeignKey(Media.ref_id))
-    media_preview_media_ref_id: Mapped[UUID] = mapped_column(ForeignKey(Media.ref_id))
+    is_hidden: Mapped[bool]
+    icon_ref_id: Mapped[UUID] = mapped_column(ForeignKey(Media.ref_id))
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),
         default=datetime.now,
@@ -38,12 +39,12 @@ class StudyDirection(Base):
         index=True,
     )
 
-    media: Mapped[Media] = relationship(foreign_keys=media_ref_id, lazy="selectin")
-    media_preview: Mapped[Media] = relationship(
-        foreign_keys=media_preview_media_ref_id, lazy="selectin"
-    )
+    icon: Mapped[Media] = relationship(foreign_keys=icon_ref_id, lazy="selectin")
     programs: Mapped[list["StudyProgram"]] = relationship(
-        back_populates="program", order_by="StudyProgram.created_at"
+        back_populates="direction", order_by="StudyProgram.created_at", lazy="selectin"
+    )
+    instructors: Mapped[list[Instructor]] = relationship(
+        secondary="study_direction_instructor_relatinoship", lazy="selectin"
     )
 
 

@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  itcubehack:
+    image: minio/minio:latest
+    container_name: itcubehack-minio
+    ports:
+      - "9000:9000"       # Основной порт для API
+      - "9001:9001"       # Порт для консоли управления
+    environment:
+      MINIO_ACCESS_KEY: minioaccesskey
+      MINIO_SECRET_KEY: miniosecretkey
+    volumes:
+      - /Users/ulbwa/GitHub/ITCubeHackBackend/data/minio/data:/data    # Хранилище данных MinIO
+      - /Users/ulbwa/GitHub/ITCubeHackBackend/data/minio/config:/root/.minio  # Хранилище конфигурации
+    command: server /data --console-address ":9001"  # Консоль управления доступна на порту 9001

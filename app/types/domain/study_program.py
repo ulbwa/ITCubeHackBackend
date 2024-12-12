@@ -8,7 +8,7 @@ from app.types.domain.media import Media
 @dataclass(kw_only=True, slots=True)
 class StudyProgram:
     ref_id: UUID
-    program_ref_id: UUID
+    direction_ref_id: UUID
     title: str
     description: str | None
     document: Media

@@ -18,5 +18,8 @@ class Media:
     def get_file_uri(self) -> str:
         return f"/storage/{self.ref_id}"
 
+    def get_file_key(self) -> str:
+        return f"{self.bucket}/{self.file_key}"
+
 
 __all__ = ("Media",)

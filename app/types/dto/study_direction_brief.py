@@ -10,8 +10,8 @@ class StudyDirectionBrief(
 ):
     ref_id: UUID
     title: str
-    description: str
-    preview_media: Media
+    description: str | None
+    icon: Media
 
 
 __all__ = ("StudyDirectionBrief",)

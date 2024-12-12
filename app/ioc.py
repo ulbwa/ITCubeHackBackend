@@ -9,6 +9,7 @@ def create_container() -> AsyncContainer:
         providers.DatabaseProvider(),
         providers.ConfigProvider(),
         providers.RepositoryProvider(),
+        providers.S3Provider(),
         context={
             config.AppConfig: env.APP_CONFIG,
             config.DatabaseConfig: env.DATABASE_CONFIG,

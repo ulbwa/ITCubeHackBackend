@@ -16,4 +16,4 @@ class AnnouncementDatabaseAdapter(domain.Announcement):
         )
 
 
-__all__ = ("MediaDatabaseAdapter",)
+__all__ = ("AnnouncementDatabaseAdapter",)

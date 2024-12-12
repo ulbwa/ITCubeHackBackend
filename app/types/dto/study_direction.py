@@ -5,6 +5,7 @@ from pydantic import BaseModel, alias_generators
 
 from app.types.dto.instructor import Instructor
 from app.types.dto.media import Media
+from app.types.dto.study_direction_review import StudyDirectionReview
 from app.types.dto.study_program import StudyProgram
 
 
@@ -17,6 +18,7 @@ class StudyDirection(
     icon: Media
     programs: Sequence[StudyProgram]
     instructors: Sequence[Instructor]
+    reviews: Sequence[StudyDirectionReview]
 
 
 __all__ = ("StudyDirection",)

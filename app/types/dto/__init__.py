@@ -5,6 +5,7 @@ from app.types.dto.news import News
 from app.types.dto.news_brief import NewsBrief
 from app.types.dto.study_direction import StudyDirection
 from app.types.dto.study_direction_brief import StudyDirectionBrief
+from app.types.dto.study_direction_review import StudyDirectionReview
 from app.types.dto.study_program import StudyProgram
 
 __all__ = (
@@ -16,4 +17,5 @@ __all__ = (
     "Instructor",
     "News",
     "NewsBrief",
+    "StudyDirectionReview",
 )

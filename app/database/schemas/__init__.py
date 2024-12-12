@@ -5,6 +5,7 @@ from app.database.schemas.news import News
 from app.database.schemas.news_gallery_item import NewsGalleryItem
 from app.database.schemas.study_direction import StudyDirection
 from app.database.schemas.study_direction_instructor import StudyDirectionInstructor
+from app.database.schemas.study_direction_review import StudyDirectionReview
 from app.database.schemas.study_program import StudyProgram
 
 __all__ = (
@@ -16,4 +17,5 @@ __all__ = (
     "StudyProgram",
     "Instructor",
     "StudyDirectionInstructor",
+    "StudyDirectionReview",
 )

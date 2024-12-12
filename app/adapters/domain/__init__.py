@@ -10,6 +10,9 @@ from app.adapters.domain.news_gallery_item_database_adapter import (
 from app.adapters.domain.study_direction_database_adapter import (
     StudyDirectionDatabaseAdapter,
 )
+from app.adapters.domain.study_direction_review_database_adapter import (
+    StudyDirectionReviewDatabaseAdapter,
+)
 from app.adapters.domain.study_program_database_adapter import (
     StudyProgramDatabaseAdapter,
 )
@@ -22,4 +25,5 @@ __all__ = (
     "InstructorDatabaseAdapter",
     "NewsDatabaseAdapter",
     "NewsGalleryItemDatabaseAdapter",
+    "StudyDirectionReviewDatabaseAdapter",
 )

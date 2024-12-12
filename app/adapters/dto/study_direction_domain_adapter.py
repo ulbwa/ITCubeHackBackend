@@ -1,5 +1,8 @@
 from app.adapters.dto.instructor_domain_adapter import InstructorDomainAdapter
 from app.adapters.dto.media_domain_adapter import MediaDomainAdapter
+from app.adapters.dto.study_direction_review_domain_adapter import (
+    StudyDirectionReviewDomainAdapter,
+)
 from app.adapters.dto.study_program_domain_adapter import StudyProgramDomainAdapter
 from app.types import domain, dto
 
@@ -17,6 +20,10 @@ class StudyDirectionDomainAdapter(dto.StudyDirection):
             instructors=[
                 InstructorDomainAdapter(instructor)
                 for instructor in domain_obj.instructors
+            ],
+            reviews=[
+                StudyDirectionReviewDomainAdapter(review)
+                for review in domain_obj.reviews
             ],
         )
 

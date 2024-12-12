@@ -7,6 +7,9 @@ from app.adapters.dto.study_direction_brief_domain_adapter import (
     StudyDirectionBriefDomainAdapter,
 )
 from app.adapters.dto.study_direction_domain_adapter import StudyDirectionDomainAdapter
+from app.adapters.dto.study_direction_review_domain_adapter import (
+    StudyDirectionReviewDomainAdapter,
+)
 from app.adapters.dto.study_program_domain_adapter import StudyProgramDomainAdapter
 
 __all__ = (
@@ -18,4 +21,5 @@ __all__ = (
     "NewsDomainAdapter",
     "InstructorDomainAdapter",
     "NewsBriefDomainAdapter",
+    "StudyDirectionReviewDomainAdapter",
 )

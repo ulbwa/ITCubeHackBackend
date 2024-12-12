@@ -4,6 +4,7 @@ from uuid import UUID
 
 from app.types.domain.instructor import Instructor
 from app.types.domain.media import Media
+from app.types.domain.study_direction_review import StudyDirectionReview
 from app.types.domain.study_program import StudyProgram
 
 
@@ -19,6 +20,7 @@ class StudyDirection:
     updated_at: datetime | None
     programs: list[StudyProgram]
     instructors: list[Instructor]
+    reviews: list[StudyDirectionReview]
 
 
 __all__ = ("Media",)

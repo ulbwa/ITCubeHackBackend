@@ -1,5 +1,8 @@
 from app.adapters.domain.instructor_database_adapter import InstructorDatabaseAdapter
 from app.adapters.domain.media_database_adapter import MediaDatabaseAdapter
+from app.adapters.domain.study_direction_review_database_adapter import (
+    StudyDirectionReviewDatabaseAdapter,
+)
 from app.adapters.domain.study_program_database_adapter import (
     StudyProgramDatabaseAdapter,
 )
@@ -25,7 +28,10 @@ class StudyDirectionDatabaseAdapter(domain.StudyDirection):
                 InstructorDatabaseAdapter(instructor)
                 for instructor in orm_obj.instructors
             ],
+            reviews=[
+                StudyDirectionReviewDatabaseAdapter(review) for review in orm_obj.reviews
+            ],
         )
 
 
-__all__ = ("MediaDatabaseAdapter",)
+__all__ = ("StudyDirectionDatabaseAdapter",)

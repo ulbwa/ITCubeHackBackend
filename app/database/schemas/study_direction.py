@@ -10,6 +10,7 @@ from app.database.schemas.instructor import Instructor
 from app.database.schemas.media import Media
 
 if TYPE_CHECKING:
+    from app.database.schemas.study_direction_review import StudyDirectionReview
     from app.database.schemas.study_program import StudyProgram
 
 
@@ -46,6 +47,7 @@ class StudyDirection(Base):
     instructors: Mapped[list[Instructor]] = relationship(
         secondary="study_direction_instructor_relatinoship", lazy="selectin"
     )
+    reviews: Mapped[list["StudyDirectionReview"]] = relationship(lazy="selectin")
 
 
 __all__ = ("StudyDirection",)

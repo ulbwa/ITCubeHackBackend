@@ -19,6 +19,7 @@ class News(Base):
     )
     title: Mapped[str] = mapped_column(String(256))
     content: Mapped[str]
+    is_hidden: Mapped[bool]
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),
         default=datetime.now,
@@ -34,7 +35,7 @@ class News(Base):
         index=True,
     )
 
-    gallery: Mapped["NewsGalleryItem"] = relationship(
+    gallery: Mapped[list["NewsGalleryItem"]] = relationship(
         back_populates="news", order_by="NewsGalleryItem.index", lazy="selectin"
     )
 

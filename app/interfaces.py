@@ -2,7 +2,7 @@ from abc import abstractmethod
 from typing import Protocol, Sequence
 from uuid import UUID
 
-from app.types import domain, enums
+from app.types import domain
 
 
 class AnnouncementRepository(Protocol):
@@ -10,8 +10,6 @@ class AnnouncementRepository(Protocol):
     async def search(
         self,
         ensure_visible: bool,
-        sort_option: enums.AnnouncementSortOption,
-        sort_direction: enums.SortDirection,
         limit: int,
         offset: int,
     ) -> Sequence[domain.Announcement]: ...
@@ -33,6 +31,16 @@ class StudyRepository(Protocol):
 class MediaRepository(Protocol):
     @abstractmethod
     async def get(self, ref_id: UUID) -> domain.Media: ...
+
+
+class NewsRepository(Protocol):
+    @abstractmethod
+    async def get(self, ref_id: UUID) -> domain.News: ...
+
+    @abstractmethod
+    async def search(
+        self, ensure_visible: bool, limit: int, offset: int
+    ) -> Sequence[domain.News]: ...
 
 
 __all__ = "AnnouncementRepository", "StudyRepository", "MediaRepository"

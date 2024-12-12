@@ -18,6 +18,10 @@ class RepositoryProvider(Provider):
         repositories.MediaRepository,
         provides=interfaces.MediaRepository,
     )
+    news_repository = provide(
+        repositories.NewsRepository,
+        provides=interfaces.NewsRepository,
+    )
 
 
 __all__ = ("RepositoryProvider",)

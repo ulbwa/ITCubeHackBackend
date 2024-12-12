@@ -38,16 +38,16 @@ class StudyRepository(interfaces.StudyRepository):
     async def search(
         self, ensure_visible: bool, limit: int, offset: int
     ) -> interfaces.Sequence[domain.StudyDirection]:
-        query = select(schemas.StudyDirection).options(
-            noload(schemas.StudyDirection.instructors)
+        query = (
+            select(schemas.StudyDirection)
+            .options(noload(schemas.StudyDirection.instructors))
+            .order_by(schemas.StudyDirection.created_at)
         )
 
         if ensure_visible:
             query = query.where(schemas.StudyDirection.is_hidden.is_(False))
 
-        query = (
-            query.order_by(schemas.StudyDirection.created_at).limit(limit).offset(offset)
-        )
+        query = query.limit(limit).offset(offset)
         data = await self.session.scalars(query)
 
         return [

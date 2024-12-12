@@ -3,6 +3,10 @@ from app.adapters.domain.announcement_database_adapter import (
 )
 from app.adapters.domain.instructor_database_adapter import InstructorDatabaseAdapter
 from app.adapters.domain.media_database_adapter import MediaDatabaseAdapter
+from app.adapters.domain.news_database_adapter import NewsDatabaseAdapter
+from app.adapters.domain.news_gallery_item_database_adapter import (
+    NewsGalleryItemDatabaseAdapter,
+)
 from app.adapters.domain.study_direction_database_adapter import (
     StudyDirectionDatabaseAdapter,
 )
@@ -16,4 +20,6 @@ __all__ = (
     "StudyDirectionDatabaseAdapter",
     "StudyProgramDatabaseAdapter",
     "InstructorDatabaseAdapter",
+    "NewsDatabaseAdapter",
+    "NewsGalleryItemDatabaseAdapter",
 )
